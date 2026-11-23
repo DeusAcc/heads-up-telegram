@@ -1,0 +1,22 @@
+{
+  "name": "heads-up-telegram",
+  "version": "0.1.0",
+  "description": "Telegram group digests with one-tap AI replies for Even Realities G2 glasses",
+  "scripts": {
+    "build": "esbuild web/src/main.js --bundle --format=esm --outfile=web/dist/app.js && cp web/index.html web/dist/ && cp web/public/* web/dist/",
+    "start": "node server/server.js",
+    "demo-server": "DEMO=1 node server/server.js",
+    "test": "node --test test/*.test.js",
+    "demo": "node scripts/demo.js",
+    "pack": "npm run build && evenhub pack app.json web/dist -o out/heads-up.ehpk"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@evenrealities/even_hub_sdk": "^0.0.16"
+  },
+  "devDependencies": {
+    "@evenrealities/evenhub-cli": "^0.2.0",
+    "@evenrealities/evenhub-simulator": "^0.9.5",
+    "esbuild": "^0.28.2"
+  }
+}
